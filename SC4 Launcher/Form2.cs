@@ -102,10 +102,10 @@ namespace SC4_Launcher
                     buffer.saveintrvl.Add(loader.saveintrvl[i]);
                 }
                 comboBox1.SelectedIndex = 0;
+                radioButton1.Checked = true;
             }
             if (string.IsNullOrEmpty(comboBox1.Text))
             {
-                radioButton1.Checked = true;
                 radioButton2.Enabled = false;
             }
             if(comboBox1.Text == "")

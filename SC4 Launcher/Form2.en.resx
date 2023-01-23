@@ -129,24 +129,6 @@
   <data name="tabPage1.Text" xml:space="preserve">
     <value>Graphics</value>
   </data>
-  <data name="sound_set.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 19</value>
-  </data>
-  <data name="sound_set.Text" xml:space="preserve">
-    <value>sounds off</value>
-  </data>
-  <data name="intro_set.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 19</value>
-  </data>
-  <data name="intro_set.Text" xml:space="preserve">
-    <value>intro off</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>intervall in min</value>
-  </data>
-  <data name="autosave.Text" xml:space="preserve">
-    <value>Autosave on</value>
-  </data>
   <data name="windowmode.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 19</value>
   </data>
@@ -164,6 +146,24 @@
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>CPU cores</value>
+  </data>
+  <data name="sound_set.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 19</value>
+  </data>
+  <data name="sound_set.Text" xml:space="preserve">
+    <value>sounds off</value>
+  </data>
+  <data name="intro_set.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 19</value>
+  </data>
+  <data name="intro_set.Text" xml:space="preserve">
+    <value>intro off</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>intervall in min</value>
+  </data>
+  <data name="autosave.Text" xml:space="preserve">
+    <value>Autosave on</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Steam path</value>
