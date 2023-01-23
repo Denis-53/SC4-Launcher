@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.profilname_txt = new System.Windows.Forms.TextBox();
@@ -61,206 +62,167 @@
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.intro_set = new System.Windows.Forms.CheckBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.saveintervall = new System.Windows.Forms.NumericUpDown();
+            this.autosave = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.settings.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saveintervall)).BeginInit();
             this.SuspendLayout();
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 16);
+            resources.ApplyResources(this.radioButton1, "radioButton1");
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 19);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "neues Profil";
+            this.toolTip1.SetToolTip(this.radioButton1, resources.GetString("radioButton1.ToolTip"));
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 45);
+            resources.ApplyResources(this.radioButton2, "radioButton2");
+            this.radioButton2.Checked = true;
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(112, 19);
-            this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Profil bearbeiten";
+            this.toolTip1.SetToolTip(this.radioButton2, resources.GetString("radioButton2.ToolTip"));
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // profilname_txt
             // 
-            this.profilname_txt.Enabled = false;
-            this.profilname_txt.Location = new System.Drawing.Point(130, 12);
+            resources.ApplyResources(this.profilname_txt, "profilname_txt");
             this.profilname_txt.Name = "profilname_txt";
-            this.profilname_txt.Size = new System.Drawing.Size(136, 23);
-            this.profilname_txt.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.profilname_txt, resources.GetString("profilname_txt.ToolTip"));
             // 
             // comboBox1
             // 
-            this.comboBox1.Enabled = false;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(130, 41);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 23);
-            this.comboBox1.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.comboBox1, resources.GetString("comboBox1.ToolTip"));
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // swradio
             // 
-            this.swradio.AutoSize = true;
-            this.swradio.Enabled = false;
-            this.swradio.Location = new System.Drawing.Point(165, 84);
+            resources.ApplyResources(this.swradio, "swradio");
             this.swradio.Name = "swradio";
-            this.swradio.Size = new System.Drawing.Size(71, 19);
-            this.swradio.TabIndex = 11;
             this.swradio.TabStop = true;
-            this.swradio.Text = "Software";
+            this.toolTip1.SetToolTip(this.swradio, resources.GetString("swradio.ToolTip"));
             this.swradio.UseVisualStyleBackColor = true;
             // 
             // openglradio
             // 
-            this.openglradio.AutoSize = true;
-            this.openglradio.Enabled = false;
-            this.openglradio.Location = new System.Drawing.Point(165, 55);
+            resources.ApplyResources(this.openglradio, "openglradio");
             this.openglradio.Name = "openglradio";
-            this.openglradio.Size = new System.Drawing.Size(68, 19);
-            this.openglradio.TabIndex = 10;
             this.openglradio.TabStop = true;
-            this.openglradio.Text = "OpenGL";
+            this.toolTip1.SetToolTip(this.openglradio, resources.GetString("openglradio.ToolTip"));
             this.openglradio.UseVisualStyleBackColor = true;
             // 
             // directxradio
             // 
-            this.directxradio.AutoSize = true;
-            this.directxradio.Enabled = false;
-            this.directxradio.Location = new System.Drawing.Point(165, 26);
+            resources.ApplyResources(this.directxradio, "directxradio");
             this.directxradio.Name = "directxradio";
-            this.directxradio.Size = new System.Drawing.Size(63, 19);
-            this.directxradio.TabIndex = 9;
             this.directxradio.TabStop = true;
-            this.directxradio.Text = "DirectX";
+            this.toolTip1.SetToolTip(this.directxradio, resources.GetString("directxradio.ToolTip"));
             this.directxradio.UseVisualStyleBackColor = true;
             // 
             // renderingbox
             // 
-            this.renderingbox.AutoSize = true;
-            this.renderingbox.Location = new System.Drawing.Point(165, 6);
+            resources.ApplyResources(this.renderingbox, "renderingbox");
             this.renderingbox.Name = "renderingbox";
-            this.renderingbox.Size = new System.Drawing.Size(117, 19);
-            this.renderingbox.TabIndex = 8;
-            this.renderingbox.Text = "rendering Modus";
+            this.toolTip1.SetToolTip(this.renderingbox, resources.GetString("renderingbox.ToolTip"));
             this.renderingbox.UseVisualStyleBackColor = true;
             this.renderingbox.CheckedChanged += new System.EventHandler(this.renderingbox_CheckedChanged);
             this.renderingbox.MouseHover += new System.EventHandler(this.renderingbox_MouseHover);
             // 
             // depth_txt
             // 
-            this.depth_txt.Enabled = false;
+            resources.ApplyResources(this.depth_txt, "depth_txt");
             this.depth_txt.FormattingEnabled = true;
-            this.depth_txt.Location = new System.Drawing.Point(48, 83);
             this.depth_txt.Name = "depth_txt";
-            this.depth_txt.Size = new System.Drawing.Size(82, 23);
-            this.depth_txt.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.depth_txt, resources.GetString("depth_txt.ToolTip"));
             // 
             // width_txt
             // 
-            this.width_txt.Enabled = false;
-            this.width_txt.Location = new System.Drawing.Point(48, 54);
+            resources.ApplyResources(this.width_txt, "width_txt");
             this.width_txt.Name = "width_txt";
-            this.width_txt.Size = new System.Drawing.Size(82, 23);
-            this.width_txt.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.width_txt, resources.GetString("width_txt.ToolTip"));
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 86);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Tiefe";
+            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // height_txt
             // 
-            this.height_txt.Enabled = false;
-            this.height_txt.Location = new System.Drawing.Point(48, 25);
+            resources.ApplyResources(this.height_txt, "height_txt");
             this.height_txt.Name = "height_txt";
-            this.height_txt.Size = new System.Drawing.Size(82, 23);
-            this.height_txt.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.height_txt, resources.GetString("height_txt.ToolTip"));
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 54);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Breite";
+            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 28);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Höhe";
+            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // customresbox
             // 
-            this.customresbox.AutoSize = true;
-            this.customresbox.Location = new System.Drawing.Point(6, 6);
+            resources.ApplyResources(this.customresbox, "customresbox");
             this.customresbox.Name = "customresbox";
-            this.customresbox.Size = new System.Drawing.Size(81, 19);
-            this.customresbox.TabIndex = 0;
-            this.customresbox.Text = "Auflösung";
+            this.toolTip1.SetToolTip(this.customresbox, resources.GetString("customresbox.ToolTip"));
             this.customresbox.UseVisualStyleBackColor = true;
             this.customresbox.CheckedChanged += new System.EventHandler(this.customresbox_CheckedChanged);
             this.customresbox.MouseHover += new System.EventHandler(this.customresbox_MouseHover);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(116, 415);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "empfohlene Einstellungen";
+            this.toolTip1.SetToolTip(this.button2, resources.GetString("button2.ToolTip"));
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(286, 415);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Speichern";
+            this.toolTip1.SetToolTip(this.button1, resources.GetString("button1.ToolTip"));
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // settings
             // 
+            resources.ApplyResources(this.settings, "settings");
             this.settings.Controls.Add(this.tabPage1);
             this.settings.Controls.Add(this.tabPage2);
             this.settings.Controls.Add(this.tabPage3);
             this.settings.Controls.Add(this.tabPage4);
-            this.settings.Location = new System.Drawing.Point(12, 89);
+            this.settings.Controls.Add(this.tabPage5);
             this.settings.Name = "settings";
             this.settings.SelectedIndex = 0;
-            this.settings.Size = new System.Drawing.Size(330, 243);
-            this.settings.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.settings, resources.GetString("settings.ToolTip"));
             // 
             // tabPage1
             // 
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Controls.Add(this.windowmode);
             this.tabPage1.Controls.Add(this.swradio);
             this.tabPage1.Controls.Add(this.customresbox);
@@ -273,193 +235,203 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.depth_txt);
             this.tabPage1.Controls.Add(this.width_txt);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(322, 215);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Grafik";
+            this.toolTip1.SetToolTip(this.tabPage1, resources.GetString("tabPage1.ToolTip"));
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // windowmode
             // 
-            this.windowmode.AutoSize = true;
-            this.windowmode.Location = new System.Drawing.Point(7, 124);
+            resources.ApplyResources(this.windowmode, "windowmode");
             this.windowmode.Name = "windowmode";
-            this.windowmode.Size = new System.Drawing.Size(101, 19);
-            this.windowmode.TabIndex = 12;
-            this.windowmode.Text = "Fenstermodus";
+            this.toolTip1.SetToolTip(this.windowmode, resources.GetString("windowmode.ToolTip"));
             this.windowmode.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Controls.Add(this.cpu_priority);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.cpu_cores);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(322, 215);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "CPU";
+            this.toolTip1.SetToolTip(this.tabPage2, resources.GetString("tabPage2.ToolTip"));
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // cpu_priority
             // 
+            resources.ApplyResources(this.cpu_priority, "cpu_priority");
             this.cpu_priority.FormattingEnabled = true;
-            this.cpu_priority.Location = new System.Drawing.Point(81, 45);
             this.cpu_priority.Name = "cpu_priority";
-            this.cpu_priority.Size = new System.Drawing.Size(82, 23);
-            this.cpu_priority.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.cpu_priority, resources.GetString("cpu_priority.ToolTip"));
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 48);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 15);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Priorität";
+            this.toolTip1.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // cpu_cores
             // 
+            resources.ApplyResources(this.cpu_cores, "cpu_cores");
             this.cpu_cores.FormattingEnabled = true;
-            this.cpu_cores.Location = new System.Drawing.Point(81, 8);
             this.cpu_cores.Name = "cpu_cores";
-            this.cpu_cores.Size = new System.Drawing.Size(82, 23);
-            this.cpu_cores.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.cpu_cores, resources.GetString("cpu_cores.ToolTip"));
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 11);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 15);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Anzahl CPU";
+            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // tabPage3
             // 
+            resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Controls.Add(this.sound_set);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(322, 215);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Sound";
+            this.toolTip1.SetToolTip(this.tabPage3, resources.GetString("tabPage3.ToolTip"));
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // sound_set
             // 
-            this.sound_set.AutoSize = true;
-            this.sound_set.Location = new System.Drawing.Point(6, 6);
+            resources.ApplyResources(this.sound_set, "sound_set");
             this.sound_set.Name = "sound_set";
-            this.sound_set.Size = new System.Drawing.Size(132, 19);
-            this.sound_set.TabIndex = 0;
-            this.sound_set.Text = "Sounds deaktivieren";
+            this.toolTip1.SetToolTip(this.sound_set, resources.GetString("sound_set.ToolTip"));
             this.sound_set.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
+            resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Controls.Add(this.panel1);
             this.tabPage4.Controls.Add(this.intro_set);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(322, 215);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Game";
+            this.toolTip1.SetToolTip(this.tabPage4, resources.GetString("tabPage4.ToolTip"));
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
+            resources.ApplyResources(this.label8, "label8");
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Location = new System.Drawing.Point(6, 33);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 15);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Erweitert";
+            this.toolTip1.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel1.Location = new System.Drawing.Point(0, 46);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 2);
-            this.panel1.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
             // 
             // intro_set
             // 
-            this.intro_set.AutoSize = true;
-            this.intro_set.Location = new System.Drawing.Point(6, 6);
+            resources.ApplyResources(this.intro_set, "intro_set");
             this.intro_set.Name = "intro_set";
-            this.intro_set.Size = new System.Drawing.Size(118, 19);
-            this.intro_set.TabIndex = 0;
-            this.intro_set.Text = "Intro deaktivieren";
+            this.toolTip1.SetToolTip(this.intro_set, resources.GetString("intro_set.ToolTip"));
             this.intro_set.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            resources.ApplyResources(this.tabPage5, "tabPage5");
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Controls.Add(this.saveintervall);
+            this.tabPage5.Controls.Add(this.autosave);
+            this.tabPage5.Name = "tabPage5";
+            this.toolTip1.SetToolTip(this.tabPage5, resources.GetString("tabPage5.ToolTip"));
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            this.toolTip1.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
+            // 
+            // saveintervall
+            // 
+            resources.ApplyResources(this.saveintervall, "saveintervall");
+            this.saveintervall.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.saveintervall.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.saveintervall.Name = "saveintervall";
+            this.toolTip1.SetToolTip(this.saveintervall, resources.GetString("saveintervall.ToolTip"));
+            this.saveintervall.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // autosave
+            // 
+            resources.ApplyResources(this.autosave, "autosave");
+            this.autosave.Name = "autosave";
+            this.toolTip1.SetToolTip(this.autosave, resources.GetString("autosave.ToolTip"));
+            this.autosave.UseVisualStyleBackColor = true;
+            this.autosave.CheckedChanged += new System.EventHandler(this.autosave_CheckedChanged);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 342);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Steam Pfad";
+            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(85, 339);
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 23);
-            this.textBox1.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.textBox1, resources.GetString("textBox1.ToolTip"));
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(263, 338);
+            resources.ApplyResources(this.button3, "button3");
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Öffnen";
+            this.toolTip1.SetToolTip(this.button3, resources.GetString("button3.ToolTip"));
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 371);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 15);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "App-ID";
+            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 368);
+            resources.ApplyResources(this.textBox2, "textBox2");
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(80, 23);
-            this.textBox2.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.textBox2, resources.GetString("textBox2.ToolTip"));
             // 
             // button4
             // 
+            resources.ApplyResources(this.button4, "button4");
             this.button4.Image = global::SC4_Launcher.Properties.Resources.Remove;
-            this.button4.Location = new System.Drawing.Point(272, 41);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(25, 23);
-            this.button4.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.button4, resources.GetString("button4.ToolTip"));
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
             // 
+            // button5
+            // 
+            resources.ApplyResources(this.button5, "button5");
+            this.button5.Image = global::SC4_Launcher.Properties.Resources.Web;
+            this.button5.Name = "button5";
+            this.toolTip1.SetToolTip(this.button5, resources.GetString("button5.ToolTip"));
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 450);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label5);
@@ -473,11 +445,12 @@
             this.Controls.Add(this.profilname_txt);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
             this.ShowIcon = false;
-            this.Text = "Profil bearbeiten";
+            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.settings.ResumeLayout(false);
@@ -489,6 +462,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.saveintervall)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,5 +509,10 @@
         private CheckBox intro_set;
         private Label label8;
         private Panel panel1;
+        private TabPage tabPage5;
+        private Label label9;
+        private NumericUpDown saveintervall;
+        private CheckBox autosave;
+        private Button button5;
     }
 }

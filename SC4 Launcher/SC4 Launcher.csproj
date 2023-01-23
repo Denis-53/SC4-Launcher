@@ -7,11 +7,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>bin\Debug\net6.0-windows\SC4.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\SC4.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\net6.0-windows\SC4.ico" />
+    <Content Include="Resources\SC4.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +45,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net6.0-windows\" />
   </ItemGroup>
 
 </Project>

@@ -27,6 +27,9 @@ namespace SC4_Launcher
 
         public static List<bool> sound_off = new List<bool>();
         public static List<bool> intro_off = new List<bool>();
+
+        public static List<bool> autosave = new List<bool>();
+        public static List<int> saveintrvl = new List<int>();
     }
     public class write_profile
     {
@@ -46,12 +49,14 @@ namespace SC4_Launcher
         public bool sound_off;
         public bool intro_off;
 
+        public bool autosave;
+        public int saveintrvl;
         //JSON Serialized
         public void write()
         {
             string output="";
             string userdata;
-            string fileName = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "/profile.json";
+            string fileName = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/SC4_Launcher/profile.json";
             List<string> JSONs = new List<string>();
             write_profile user = new write_profile();
 
@@ -73,6 +78,9 @@ namespace SC4_Launcher
 
                 user.sound_off = buffer.sound_off[i];
                 user.intro_off = buffer.intro_off[i];
+
+                user.autosave = buffer.autosave[i];
+                user.saveintrvl = buffer.saveintrvl[i];
 
                 userdata =  JsonConvert.SerializeObject(user, Formatting.Indented);
                 JSONs.Add(userdata);
@@ -125,12 +133,15 @@ namespace SC4_Launcher
         public List<string> cpu_priority = new List<string>();
         public List<bool> sound_off = new List<bool>();
         public List<bool> intro_off = new List<bool>();
+
+        public List<bool> autosave = new List<bool>();
+        public List<int> saveintrvl = new List<int>();
         public void load()
         {
-            var definition = new[] { new { index = "", name = "", custom_res = "", height = "", width = "", depth = "", rendering = "", rendering_mode = "", window_mode = "", cpu_cores = "", cpu_priority = "", sound_off = "", intro_off = "" } };
+            var definition = new[] { new { index = "", name = "", custom_res = "", height = "", width = "", depth = "", rendering = "", rendering_mode = "", window_mode = "", cpu_cores = "", cpu_priority = "", sound_off = "", intro_off = "", autosave = "", saveintrvl = "" } };
             try
             {
-                string file = File.ReadAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\profile.json");
+                string file = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/SC4_Launcher/profile.json");
                 var data = JsonConvert.DeserializeAnonymousType(file, definition);
                 lenght = data.Length;
                 if (lenght > 0)
@@ -156,6 +167,9 @@ namespace SC4_Launcher
 
                     sound_off.Add(Convert.ToBoolean(data[i].sound_off));
                     intro_off.Add(Convert.ToBoolean(data[i].intro_off));
+
+                    autosave.Add(Convert.ToBoolean(data[i].autosave));
+                    saveintrvl.Add(Convert.ToInt32(data[i].saveintrvl));
                 }
             }
             catch

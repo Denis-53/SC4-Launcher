@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -23,20 +24,35 @@ namespace SC4_Launcher
         OpenFileDialog ofd = new OpenFileDialog();
         write_profile writer = new write_profile();
         load_profile loader = new load_profile();
+        Form3 form3 = new Form3();
         public Form2()
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
             ofd.Filter = "Steam | steam.exe";
             ofd.Title = "Steam Pfad";
-            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86)+"\\Steam";
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam";
             InitializeComponent();
             depth_txt.Items.Add("16");
             depth_txt.Items.Add("32");
-            cpu_priority.Items.Add("Standard");
-            cpu_priority.Items.Add("Niedrig");
-            cpu_priority.Items.Add("Normal");
-            cpu_priority.Items.Add("Hoch");
+            switch (Properties.Settings.Default.language)
+            {
+            case "de-de":
+                cpu_priority.Items.Add("Standard");
+                cpu_priority.Items.Add("Niedrig");
+                cpu_priority.Items.Add("Normal");
+                cpu_priority.Items.Add("Hoch");
+                cpu_cores.Items.Add("Standard");
+            break;
+            default:
+                cpu_priority.Items.Add("default");
+                cpu_priority.Items.Add("low");
+                cpu_priority.Items.Add("normal");
+                cpu_priority.Items.Add("high");
+                cpu_cores.Items.Add("default");
+                break;
+            }
             cpu_priority.SelectedIndex = 0;
-            cpu_cores.Items.Add("Standard");
+
             int coreCount = 0;
             foreach (var item in new System.Management.ManagementObjectSearcher("Select * from Win32_Processor").Get())
             {
@@ -50,6 +66,10 @@ namespace SC4_Launcher
             directxradio.Checked = true;
             textBox1.Text = Properties.Settings.Default.steam_path;
             textBox2.Text = Properties.Settings.Default.steam_id.ToString();
+            if(textBox1.Text == "")
+            {
+                button1.Enabled = false;
+            }
             if(textBox2.Text == "0")
             {
                 textBox2.Text = "24780";
@@ -77,7 +97,8 @@ namespace SC4_Launcher
                     buffer.cpu_priority.Add(loader.cpu_priority[i]);
                     buffer.sound_off.Add(loader.sound_off[i]);
                     buffer.intro_off.Add(loader.intro_off[i]);
-
+                    buffer.autosave.Add(loader.autosave[i]);
+                    buffer.saveintrvl.Add(loader.saveintrvl[i]);
                 }
                 comboBox1.SelectedIndex = 0;
             }
@@ -174,24 +195,29 @@ namespace SC4_Launcher
             Debug.Write(loader.window_mode[i], "WINDOWMode");
             if (loader.window_mode[i] == true) { windowmode.Checked = true; }//Fenstermodus
             else { windowmode.Checked = false; }
-            cpu_cores.Text = loader.cpu_cores[i];
+            if (loader.cpu_cores[i] == "default") { cpu_cores.SelectedIndex = 0; }
+            else {
+                cpu_cores.Text = loader.cpu_cores[i];
+            }
             switch (loader.cpu_priority[i])
             {
                 case "high":
-                    cpu_priority.Text = "Hoch";
+                    cpu_priority.SelectedIndex = 3;
                     break;
                 case "normal":
-                    cpu_priority.Text = "Normal";
+                    cpu_priority.SelectedIndex = 2;
                     break;
                 case "low":
-                    cpu_priority.Text = "Niedrig";
+                    cpu_priority.SelectedIndex = 1;
                     break;
                 default:
-                    cpu_priority.Text = "Standard";
+                    cpu_priority.SelectedIndex = 0;
                     break;
             }
             if (loader.sound_off[i] == true) { sound_set.Checked = true; } else { sound_set.Checked = false; }
             if (loader.intro_off[i] == true) { intro_set.Checked = true; } else { intro_set.Checked = false; }
+            if (loader.autosave[i] == true) { autosave.Checked = true; } else { autosave.Checked = false; }
+            saveintervall.Value = loader.saveintrvl[i];
         }
 
         private void customresbox_MouseHover(object sender, EventArgs e)
@@ -226,24 +252,25 @@ namespace SC4_Launcher
             switch (cpu_cores.Text)
             {
                 case "Standard":
+                case "default":
                     cores = "default";
                     break;
                 default:
                     cores = cpu_cores.Text;
                     break;
             }
-            switch (cpu_priority.Text)
+            switch (cpu_priority.SelectedIndex)
             {
-                case "Hoch":
+                case 3:
                     prio = "high";
                     break;
-                case "Normal":
+                case 2:
                     prio = "normal";
                     break;
-                case "Niedrig":
+                case 1:
                     prio = "low";
                     break;
-                case "Standard":
+                case 0:
                     prio = "default";
                     break;
                 default:
@@ -296,6 +323,9 @@ namespace SC4_Launcher
                 else { buffer.sound_off.Add(false); }
                 if (intro_set.Checked) { buffer.intro_off.Add(true); }//Intro
                 else { buffer.intro_off.Add(false); }
+                if (autosave.Checked) { buffer.autosave.Add(true); }
+                else { buffer.autosave.Add(false); }
+                buffer.saveintrvl.Add(decimal.ToInt32(saveintervall.Value));
             }
             else if (radioButton2.Checked) // Profil überschreiben
             {
@@ -336,6 +366,9 @@ namespace SC4_Launcher
                     else { buffer.sound_off[i] = false; }
                     if (intro_set.Checked) { buffer.intro_off[i] = true; }//intro
                     else { buffer.intro_off[i] = false; }
+                    if (autosave.Checked) { buffer.autosave[i] = true; }
+                    else { buffer.autosave[i] = false; }
+                    buffer.saveintrvl[i] = Decimal.ToInt32(saveintervall.Value);
                 }
 
 
@@ -366,6 +399,8 @@ namespace SC4_Launcher
 
             cpu_cores.SelectedIndex = 1;
             cpu_priority.SelectedIndex = 3;
+            intro_set.Checked = true;
+            autosave.Checked = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -412,6 +447,8 @@ namespace SC4_Launcher
 
                 buffer.sound_off.RemoveAt(i);
                 buffer.intro_off.RemoveAt(i);
+                buffer.autosave.RemoveAt(i);
+                buffer.saveintrvl.RemoveAt(i);
                 writer.write();
                 Form1 form1 = new Form1();
                 form1.close();
@@ -426,6 +463,39 @@ namespace SC4_Launcher
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void autosave_CheckedChanged(object sender, EventArgs e)
+        {
+            if(autosave.Checked == true)
+            {
+                saveintervall.Enabled = true;
+            }
+            else
+            {
+                saveintervall.Enabled = false;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            form3.Show();
+            form3.Focus();
+        }
+
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            form3.Show();
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                button1.Enabled = true;
+            }
+            else { button1.Enabled = false; }
         }
     }
    
