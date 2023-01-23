@@ -25,16 +25,17 @@ namespace SC4_Launcher
         write_profile writer = new write_profile();
         load_profile loader = new load_profile();
         Form3 form3 = new Form3();
+        string lang = Properties.Settings.Default.language;
         public Form2()
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             ofd.Filter = "Steam | steam.exe";
             ofd.Title = "Steam Pfad";
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\Steam";
             InitializeComponent();
             depth_txt.Items.Add("16");
             depth_txt.Items.Add("32");
-            switch (Properties.Settings.Default.language)
+            switch (lang)
             {
             case "de-de":
                 cpu_priority.Items.Add("Standard");
@@ -104,6 +105,7 @@ namespace SC4_Launcher
             }
             if (string.IsNullOrEmpty(comboBox1.Text))
             {
+                radioButton1.Checked = true;
                 radioButton2.Enabled = false;
             }
             if(comboBox1.Text == "")
@@ -222,12 +224,29 @@ namespace SC4_Launcher
 
         private void customresbox_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(customresbox, "Aktivieren um benutzerdefinierte Auflösung einzustellen");
+            switch (lang)
+            {
+                case "de-de":
+                toolTip1.SetToolTip(customresbox, "Aktivieren um benutzerdefinierte Auflösung einzustellen");
+                    break;
+                case "en":
+                toolTip1.SetToolTip(customresbox, "Check to define a custom resolution");
+                    break;
+            }
         }
 
         private void renderingbox_MouseHover(object sender, EventArgs e)
         {
-            toolTip1.SetToolTip(renderingbox, "Aktivieren um rendering Modus auszuwählen");
+
+            switch (lang)
+            {
+                case "de-de":
+                    toolTip1.SetToolTip(renderingbox, "Aktivieren um Rendering-Modus auszuwählen");
+                    break;
+                case "en":
+                    toolTip1.SetToolTip(renderingbox, "Check to select a Rendering mode");
+                    break;
+            }
         }
 
         private void renderingbox_CheckedChanged(object sender, EventArgs e)
@@ -483,12 +502,6 @@ namespace SC4_Launcher
             form3.Focus();
         }
 
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            form3.Show();
-        }
-
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -497,6 +510,7 @@ namespace SC4_Launcher
             }
             else { button1.Enabled = false; }
         }
+
     }
    
 }

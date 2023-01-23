@@ -19,6 +19,7 @@ namespace SC4_Launcher
         load_profile loader = new load_profile();
         System.Timers.Timer aTimer = new System.Timers.Timer();
         bool autosave_bit;
+        bool debug_bit = false;
         public Form1()
         {
             if (Properties.Settings.Default.language != "")
@@ -109,7 +110,9 @@ namespace SC4_Launcher
                 if (loader.sound_off[i] == true) { arguments += " -audio:off"; }
                 else { arguments += " -audio:on"; }
                 if (loader.intro_off[i] == true) { arguments += " -Intro:off"; }
-                MessageBox.Show(arguments, "debug");
+                string autosave_txt;
+                if (autosave_bit) { autosave_txt = "Autosave: ON"; } else { autosave_txt = "Autosave: OFF"; }
+                if (debug_bit) { MessageBox.Show(steam_path+"\n"+arguments+"\n"+autosave_txt, "debug"); }
                 Run(steam_path ,arguments);
                 backgroundWorker1.RunWorkerAsync();
 
@@ -195,5 +198,18 @@ namespace SC4_Launcher
             }
         }
 
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if(debug_bit == false)
+            {
+                label3.Visible = true;
+                debug_bit= true;
+            }
+            else
+            {
+                label3.Visible = false;
+                debug_bit = false;
+            }
+        }
     }
 }
