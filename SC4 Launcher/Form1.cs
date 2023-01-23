@@ -194,9 +194,7 @@ namespace SC4_Launcher
             Process[] pname = Process.GetProcessesByName("steam");
             if (pname.Length == 0)
             {
-                Debug.WriteLine("Laueft");
-
-           
+                Run(Properties.Settings.Default.steam_path, "-silent");
             }
         }
 
