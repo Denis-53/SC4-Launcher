@@ -155,6 +155,15 @@
   <data name="intro_set.Text" xml:space="preserve">
     <value>intro off</value>
   </data>
+<<<<<<< HEAD
+=======
+  <data name="tabPage5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 215</value>
+  </data>
+  <data name="tabPage5.Text" xml:space="preserve">
+    <value>Autosave</value>
+  </data>
+>>>>>>> f09b69b1bda2201e5ffe367df4f92aa874faa69d
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -185,6 +194,12 @@
   </data>
   <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 23</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edit profile</value>
   </data>
   <data name="$this.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
