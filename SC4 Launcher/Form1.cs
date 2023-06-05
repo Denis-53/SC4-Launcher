@@ -211,5 +211,11 @@ namespace SC4_Launcher
                 debug_bit = false;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

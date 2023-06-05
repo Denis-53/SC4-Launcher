@@ -73,6 +73,16 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Triangle {
+            get {
+                object obj = ResourceManager.GetObject("Triangle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Web {
             get {
                 object obj = ResourceManager.GetObject("Web", resourceCulture);

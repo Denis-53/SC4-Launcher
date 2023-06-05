@@ -65,7 +65,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAb8AAAD9CAIAAACjlu72AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF4svQV4W+fBv53Bu3fUdsU0bThxzMzMIFsGyZZtWbJkMetIRzogOGJm
+        wAAADsABataJCQAA/7JJREFUeF4svQV4W+fBv53Bu3fUdsU0bThxzMzMIFsGyZZtWbJkMetIRzogOGJm
         MMnMdmI7dhI7icPQUNuUGbd27dZt3dZt73jTd9z/d13n0nXy6Ehqrefcz/3TQ3ushpDTNmQ0hGClXQu5
         rcaoxRDRql1mnR+BHEa916L3opDDgDgQ0AqDVo3SqAeNGGzVKPQo8P8OFBLDoAgEuAAoUIAipVIIAgKl
         hCWTC0GNDFazJRKuUgXoUDGMylAU0KkkMCCCADEEyWBQAom5UglHLhcoYSWGKDFIjihFaqkABEUQLANh
@@ -5492,7 +5492,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5519,7 +5519,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 265</value>
@@ -5540,7 +5540,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>279, 264</value>
@@ -5564,7 +5564,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>360, 264</value>
@@ -5588,7 +5588,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -5630,7 +5630,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5666,6 +5666,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="button3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 264</value>
+  </data>
+  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 23</value>
+  </data>
+  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="button3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;button3.Name" xml:space="preserve">
+    <value>button3</value>
+  </data>
+  <data name="&gt;&gt;button3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

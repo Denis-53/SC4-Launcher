@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
+using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
@@ -25,6 +26,7 @@ namespace SC4_Launcher
         write_profile writer = new write_profile();
         load_profile loader = new load_profile();
         Form3 form3 = new Form3();
+        Form4 form4 = new Form4();
         string lang = Properties.Settings.Default.language;
         public Form2()
         {
@@ -511,6 +513,11 @@ namespace SC4_Launcher
             else { button1.Enabled = false; }
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            form4.Show();
+            form4.Focus();
+        }
     }
    
 }

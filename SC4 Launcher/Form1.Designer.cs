@@ -38,6 +38,7 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,10 +102,19 @@
             this.label3.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.label3.Name = "label3";
             // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::SC4_Launcher.Properties.Resources.Triangle;
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -135,5 +145,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private Label label2;
         private Label label3;
+        private Button button3;
     }
 }
