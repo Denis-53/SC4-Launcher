@@ -30,6 +30,7 @@ namespace SC4_Launcher
 
         public static List<bool> autosave = new List<bool>();
         public static List<int> saveintrvl = new List<int>();
+        public static List<bool> alt_keys = new List<bool>();
     }
     public class write_profile
     {
@@ -51,6 +52,7 @@ namespace SC4_Launcher
 
         public bool autosave;
         public int saveintrvl;
+        public bool alt_keys;
         //JSON Serialized
         public void write()
         {
@@ -81,6 +83,7 @@ namespace SC4_Launcher
 
                 user.autosave = buffer.autosave[i];
                 user.saveintrvl = buffer.saveintrvl[i];
+                user.alt_keys = buffer.alt_keys[i];
 
                 userdata =  JsonConvert.SerializeObject(user, Formatting.Indented);
                 JSONs.Add(userdata);
@@ -136,9 +139,11 @@ namespace SC4_Launcher
 
         public List<bool> autosave = new List<bool>();
         public List<int> saveintrvl = new List<int>();
+
+        public List<bool> alt_keys = new List<bool>();
         public void load()
         {
-            var definition = new[] { new { index = "", name = "", custom_res = "", height = "", width = "", depth = "", rendering = "", rendering_mode = "", window_mode = "", cpu_cores = "", cpu_priority = "", sound_off = "", intro_off = "", autosave = "", saveintrvl = "" } };
+            var definition = new[] { new { index = "", name = "", custom_res = "", height = "", width = "", depth = "", rendering = "", rendering_mode = "", window_mode = "", cpu_cores = "", cpu_priority = "", sound_off = "", intro_off = "", autosave = "", saveintrvl = "", alt_keys = ""} };
             try
             {
                 string file = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/SC4_Launcher/profile.json");
@@ -170,6 +175,8 @@ namespace SC4_Launcher
 
                     autosave.Add(Convert.ToBoolean(data[i].autosave));
                     saveintrvl.Add(Convert.ToInt32(data[i].saveintrvl));
+
+                    alt_keys.Add(Convert.ToBoolean(data[i].alt_keys));
                 }
             }
             catch

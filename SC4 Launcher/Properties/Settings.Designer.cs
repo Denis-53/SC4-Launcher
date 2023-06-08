@@ -82,5 +82,27 @@ namespace SC4_Launcher.Properties {
                 this["sc4_mapper_path"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public char alt_key_end {
+            get {
+                return ((char)(this["alt_key_end"]));
+            }
+            set {
+                this["alt_key_end"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public char alt_key_pos1 {
+            get {
+                return ((char)(this["alt_key_pos1"]));
+            }
+            set {
+                this["alt_key_pos1"] = value;
+            }
+        }
     }
 }

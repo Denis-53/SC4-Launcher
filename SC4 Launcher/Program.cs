@@ -14,4 +14,5 @@ namespace SC4_Launcher
             Application.Run(new Form1());
         }
     }
+
 }

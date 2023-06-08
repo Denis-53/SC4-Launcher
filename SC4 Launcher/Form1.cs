@@ -9,6 +9,8 @@ using System.Timers;
 using System.ComponentModel;
 using System.Threading;
 using Microsoft.VisualBasic;
+using System.Drawing;
+using Gma.System.MouseKeyHook;
 
 namespace SC4_Launcher
 {
@@ -18,10 +20,15 @@ namespace SC4_Launcher
         Form3 form3 = new Form3();
         load_profile loader = new load_profile();
         System.Timers.Timer aTimer = new System.Timers.Timer();
+        Button mapper_bt = new Button();
+        private IKeyboardMouseEvents m_GlobalHook;
         bool autosave_bit;
         bool debug_bit = false;
+        bool maximied = false;
+        bool alt_keys = false;
         public Form1()
         {
+
             if (Properties.Settings.Default.language != "")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
@@ -32,8 +39,24 @@ namespace SC4_Launcher
                 form3.Focus();
                 this.WindowState = FormWindowState.Minimized;
             }
+            if(Properties.Settings.Default.sc4_mapper_on == true)
+            {
+                mapper_bt.Text = "SC4 Mapper";
+                mapper_bt.Location = new Point(10, this.Height-5);
+                mapper_bt.Size = new Size(100, 23);
+                mapper_bt.Visible= false;
+                this.Controls.Add(mapper_bt);
+                mapper_bt.Click += new EventHandler(mapper_bt_cl);
+            }
             InitializeComponent();
-            if(Properties.Settings.Default.steam_path == "")
+            pictureBox2.Image = Properties.Resources.Triangle;
+            if(Properties.Settings.Default.sc4_mapper_on == false)
+            {
+                pictureBox2.Visible = false;
+            }
+            SetPictureBoxAngle(pictureBox2, 180);
+            
+            if (Properties.Settings.Default.steam_path == "")
             {
                 button1.Enabled = false;
             }
@@ -75,6 +98,7 @@ namespace SC4_Launcher
                     break;
 
             }
+            
         }
         private void autosave()
         {
@@ -110,6 +134,7 @@ namespace SC4_Launcher
                 if (loader.sound_off[i] == true) { arguments += " -audio:off"; }
                 else { arguments += " -audio:on"; }
                 if (loader.intro_off[i] == true) { arguments += " -Intro:off"; }
+                if (loader.alt_keys[i]) { alt_keys = true; } else { alt_keys = false;}
                 string autosave_txt;
                 if (autosave_bit) { autosave_txt = "Autosave: ON"; } else { autosave_txt = "Autosave: OFF"; }
                 if (debug_bit) { MessageBox.Show(steam_path+"\n"+arguments+"\n"+autosave_txt, "debug"); }
@@ -170,6 +195,14 @@ namespace SC4_Launcher
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             label2.Text += " Game Running";
+            if (alt_keys)
+            {
+                Subscribe(Hook.GlobalEvents());
+            }
+            else
+            {
+                Unsubscribe(Hook.GlobalEvents());
+            }
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -177,6 +210,10 @@ namespace SC4_Launcher
             label2.ForeColor = Color.Yellow;
             label2.Text = "Game stopped";
             aTimer.Enabled = false;
+            if (alt_keys)
+            {
+                Unsubscribe(Hook.GlobalEvents());
+            }
         }
 
         private void comboBox1_ChangeUICues(object sender, UICuesEventArgs e)
@@ -212,10 +249,75 @@ namespace SC4_Launcher
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            if (maximied == false)
+            {
+                this.Size = new Size(this.Width, this.Height + 25);
+                pictureBox2.Image = Properties.Resources.Triangle;
+                mapper_bt.Visible = true;
+                maximied= true;
+            }
+            else
+            {
+                this.Size = new Size(this.Width, this.Height - 25);
+                SetPictureBoxAngle(pictureBox2, 180);
+                mapper_bt.Visible = false;
+                maximied= false;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
+        private void SetPictureBoxAngle(PictureBox pictureBox, float angle)
+        {
+            Bitmap originalImage = (Bitmap)pictureBox.Image;
+            Bitmap rotatedImage = new Bitmap(originalImage.Width, originalImage.Height);
+
+            using (Graphics graphics = Graphics.FromImage(rotatedImage))
+            {
+                graphics.Clear(Color.Transparent);
+                graphics.TranslateTransform((float)originalImage.Width / 2, (float)originalImage.Height / 2);
+                graphics.RotateTransform(angle);
+                graphics.TranslateTransform(-(float)originalImage.Width / 2, -(float)originalImage.Height / 2);
+                graphics.DrawImage(originalImage, new Point(0, 0));
+            }
+
+            pictureBox.Image = rotatedImage;
+        }
+        private void mapper_bt_cl(object sender, EventArgs e)
+        {
+            Run(Properties.Settings.Default.sc4_mapper_path);
+        }
+        //Hook Keypress
+        public void Subscribe(IKeyboardMouseEvents events)
+        {
+            // Note: for the application hook, use the Hook.AppEvents() instead
+            m_GlobalHook = Hook.GlobalEvents();
+
+            m_GlobalHook.KeyPress += GlobalHookKeyPress;
+        }
+        public void Unsubscribe(IKeyboardMouseEvents events)
+        {
+            m_GlobalHook.KeyPress -= GlobalHookKeyPress;
+
+            //It is recommened to dispose it
+            m_GlobalHook.Dispose();
+        }
+        private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
+        {
+
+                if(e.KeyChar.Equals(Properties.Settings.Default.alt_key_end))
+                {
+                    SendKeys.Send("{END}");
+                }
+                if(e.KeyChar.Equals(Properties.Settings.Default.alt_key_pos1))
+                    SendKeys.Send("{HOME}");
+                }
+        }
 
     }
-}

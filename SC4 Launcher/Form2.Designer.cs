@@ -59,6 +59,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.sound_set = new System.Windows.Forms.CheckBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.alt_keys = new System.Windows.Forms.CheckBox();
             this.intro_set = new System.Windows.Forms.CheckBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
@@ -301,11 +302,20 @@
             // tabPage4
             // 
             resources.ApplyResources(this.tabPage4, "tabPage4");
+            this.tabPage4.Controls.Add(this.alt_keys);
             this.tabPage4.Controls.Add(this.intro_set);
             this.tabPage4.Name = "tabPage4";
             this.toolTip1.SetToolTip(this.tabPage4, resources.GetString("tabPage4.ToolTip"));
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // alt_keys
+            // 
+            resources.ApplyResources(this.alt_keys, "alt_keys");
+            this.alt_keys.Name = "alt_keys";
+            this.toolTip1.SetToolTip(this.alt_keys, resources.GetString("alt_keys.ToolTip"));
+            this.alt_keys.UseVisualStyleBackColor = true;
+            this.alt_keys.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // intro_set
             // 
@@ -506,5 +516,6 @@
         private CheckBox autosave;
         private Button button5;
         private LinkLabel linkLabel1;
+        private CheckBox alt_keys;
     }
 }

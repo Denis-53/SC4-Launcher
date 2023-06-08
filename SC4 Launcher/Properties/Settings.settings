@@ -17,5 +17,11 @@
     <Setting Name="sc4_mapper_path" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="alt_key_end" Type="System.Char" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="alt_key_pos1" Type="System.Char" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

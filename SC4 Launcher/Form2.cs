@@ -102,6 +102,7 @@ namespace SC4_Launcher
                     buffer.intro_off.Add(loader.intro_off[i]);
                     buffer.autosave.Add(loader.autosave[i]);
                     buffer.saveintrvl.Add(loader.saveintrvl[i]);
+                    buffer.alt_keys.Add(loader.alt_keys[i]);
                 }
                 comboBox1.SelectedIndex = 0;
                 radioButton1.Checked = true;
@@ -221,6 +222,7 @@ namespace SC4_Launcher
             if (loader.sound_off[i] == true) { sound_set.Checked = true; } else { sound_set.Checked = false; }
             if (loader.intro_off[i] == true) { intro_set.Checked = true; } else { intro_set.Checked = false; }
             if (loader.autosave[i] == true) { autosave.Checked = true; } else { autosave.Checked = false; }
+            if (loader.alt_keys[i] == true) { alt_keys.Checked = true; } else { alt_keys.Checked = false; }
             saveintervall.Value = loader.saveintrvl[i];
         }
 
@@ -347,6 +349,8 @@ namespace SC4_Launcher
                 if (autosave.Checked) { buffer.autosave.Add(true); }
                 else { buffer.autosave.Add(false); }
                 buffer.saveintrvl.Add(decimal.ToInt32(saveintervall.Value));
+                if(alt_keys.Checked) { buffer.alt_keys.Add(true); }
+                else { buffer.alt_keys.Add(false); }
             }
             else if (radioButton2.Checked) // Profil überschreiben
             {
@@ -390,6 +394,8 @@ namespace SC4_Launcher
                     if (autosave.Checked) { buffer.autosave[i] = true; }
                     else { buffer.autosave[i] = false; }
                     buffer.saveintrvl[i] = Decimal.ToInt32(saveintervall.Value);
+                    if(alt_keys.Checked) { buffer.alt_keys[i]= true; }
+                    else { buffer.alt_keys[i]= false; };
                 }
 
 
@@ -470,6 +476,7 @@ namespace SC4_Launcher
                 buffer.intro_off.RemoveAt(i);
                 buffer.autosave.RemoveAt(i);
                 buffer.saveintrvl.RemoveAt(i);
+                buffer.alt_keys.RemoveAt(i);
                 writer.write();
                 Form1 form1 = new Form1();
                 form1.close();
@@ -517,6 +524,11 @@ namespace SC4_Launcher
         {
             form4.Show();
             form4.Focus();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
    
