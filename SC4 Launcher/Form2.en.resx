@@ -144,6 +144,15 @@
   <data name="sound_set.Text" xml:space="preserve">
     <value>sounds off</value>
   </data>
+  <data name="alt_keys.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="alt_keys.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 19</value>
+  </data>
+  <data name="alt_keys.Text" xml:space="preserve">
+    <value>alternative keys</value>
+  </data>
   <data name="intro_set.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 19</value>
   </data>
