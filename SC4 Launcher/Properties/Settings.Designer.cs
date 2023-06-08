@@ -85,6 +85,10 @@ namespace SC4_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("+")]
+>>>>>>> 9a098a6572d6421af8f5fdf106fe0a7ce6e7440f
         public char alt_key_end {
             get {
                 return ((char)(this["alt_key_end"]));
@@ -96,6 +100,10 @@ namespace SC4_Launcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("#")]
+>>>>>>> 9a098a6572d6421af8f5fdf106fe0a7ce6e7440f
         public char alt_key_pos1 {
             get {
                 return ((char)(this["alt_key_pos1"]));
