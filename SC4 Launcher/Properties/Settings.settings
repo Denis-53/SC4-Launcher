@@ -18,17 +18,10 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="alt_key_end" Type="System.Char" Scope="User">
-<<<<<<< HEAD
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="alt_key_pos1" Type="System.Char" Scope="User">
       <Value Profile="(Default)" />
-=======
-      <Value Profile="(Default)">+</Value>
-    </Setting>
-    <Setting Name="alt_key_pos1" Type="System.Char" Scope="User">
-      <Value Profile="(Default)">#</Value>
->>>>>>> 9a098a6572d6421af8f5fdf106fe0a7ce6e7440f
     </Setting>
   </Settings>
 </SettingsFile>
