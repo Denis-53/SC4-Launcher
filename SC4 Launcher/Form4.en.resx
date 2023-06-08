@@ -60,6 +60,9 @@
   <data name="button1.Text" xml:space="preserve">
     <value>open</value>
   </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>alternative keys</value>
+  </data>
   <data name="button5.Text" xml:space="preserve">
     <value>reset</value>
   </data>
@@ -79,10 +82,10 @@
   <data name="button3.Text" xml:space="preserve">
     <value>press a key</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>alternative keys</value>
-  </data>
   <data name="button2.Text" xml:space="preserve">
     <value>save</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>more settings</value>
   </data>
 </root>

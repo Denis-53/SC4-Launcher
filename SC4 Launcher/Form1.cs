@@ -135,6 +135,7 @@ namespace SC4_Launcher
                 else { arguments += " -audio:on"; }
                 if (loader.intro_off[i] == true) { arguments += " -Intro:off"; }
                 if (loader.alt_keys[i]) { alt_keys = true; } else { alt_keys = false;}
+                Debug.WriteLine(loader.alt_keys[i]);
                 string autosave_txt;
                 if (autosave_bit) { autosave_txt = "Autosave: ON"; } else { autosave_txt = "Autosave: OFF"; }
                 if (debug_bit) { MessageBox.Show(steam_path+"\n"+arguments+"\n"+autosave_txt, "debug"); }
@@ -194,15 +195,13 @@ namespace SC4_Launcher
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            label2.Text += " Game Running";
-            if (alt_keys)
+
+                label2.Text += " Game Running";
+            if (alt_keys == true)
             {
                 Subscribe(Hook.GlobalEvents());
             }
-            else
-            {
-                Unsubscribe(Hook.GlobalEvents());
-            }
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -210,7 +209,7 @@ namespace SC4_Launcher
             label2.ForeColor = Color.Yellow;
             label2.Text = "Game stopped";
             aTimer.Enabled = false;
-            if (alt_keys)
+            if (alt_keys == true)
             {
                 Unsubscribe(Hook.GlobalEvents());
             }

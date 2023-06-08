@@ -92,21 +92,18 @@ namespace SC4_Launcher
         {
             Properties.Settings.Default.alt_key_end = default;
             Properties.Settings.Default.alt_key_pos1 = default;
-<<<<<<< HEAD
+
             if (Properties.Settings.Default.language == "de-de")
             {
                 button3.Text = "Taste drücken";
                 button4.Text = "Taste drücken";
             }
-            else
+            else if (Properties.Settings.Default.language== "en")
             {
                 button3.Text = "press a key";
                 button4.Text = "press a key";
             }
-=======
-            button3.Text = "Taste drücken";
-            button4.Text = "Taste drücken";
->>>>>>> 9a098a6572d6421af8f5fdf106fe0a7ce6e7440f
+
         }
     }
 }
