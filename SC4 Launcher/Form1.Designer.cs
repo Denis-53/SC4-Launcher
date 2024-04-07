@@ -41,6 +41,7 @@
             label3 = new Label();
             pictureBox2 = new PictureBox();
             notifyIcon1 = new NotifyIcon(components);
+            mapper_bt = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -60,9 +61,9 @@
             // 
             // comboBox1
             // 
+            resources.ApplyResources(comboBox1, "comboBox1");
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(comboBox1, "comboBox1");
             comboBox1.Name = "comboBox1";
             comboBox1.TextChanged += comboBox1_TextChanged;
             comboBox1.ChangeUICues += comboBox1_ChangeUICues;
@@ -118,10 +119,18 @@
             // 
             resources.ApplyResources(notifyIcon1, "notifyIcon1");
             // 
+            // mapper_bt
+            // 
+            resources.ApplyResources(mapper_bt, "mapper_bt");
+            mapper_bt.Name = "mapper_bt";
+            mapper_bt.UseVisualStyleBackColor = true;
+            mapper_bt.Click += mapper_bt_cl;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(mapper_bt);
             Controls.Add(pictureBox2);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -155,5 +164,6 @@
         private Label label3;
         private PictureBox pictureBox2;
         private NotifyIcon notifyIcon1;
+        private Button mapper_bt;
     }
 }

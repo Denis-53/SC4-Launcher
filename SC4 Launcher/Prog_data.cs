@@ -10,7 +10,7 @@ namespace SC4_Launcher
 {
     public class Prog_data
     {
-        public Version version = new Version("1.0.0");
+        public Version version = new Version("1.2.0");
         const string BuildVersionMetadataPrefix = "+build";
         const string dateFormat = "yyyy-MM-ddTHH:mm:ss:fffZ";
 

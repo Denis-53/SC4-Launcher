@@ -30,6 +30,7 @@ namespace SC4_Launcher
         load_profile loader = new load_profile();
         Form3 form3 = new Form3();
         Form4 form4 = new Form4();
+        Prog_data prog = new Prog_data();
         string lang = Properties.Settings.Default.language;
         public Form2()
         {
@@ -40,22 +41,25 @@ namespace SC4_Launcher
             InitializeComponent();
             depth_txt.Items.Add("16");
             depth_txt.Items.Add("32");
+            var buildTime = prog.GetLinkerTime(Assembly.GetEntryAssembly());
+            label11.Text = "Version " + prog.version;
+            label12.Text = $"Build time at {buildTime}";
             switch (lang)
             {
-            case "de-de":
-                cpu_priority.Items.Add("Standard");
-                cpu_priority.Items.Add("Niedrig");
-                cpu_priority.Items.Add("Normal");
-                cpu_priority.Items.Add("Hoch");
-                cpu_cores.Items.Add("Standard");
-            break;
-            default:
-                cpu_priority.Items.Add("default");
-                cpu_priority.Items.Add("low");
-                cpu_priority.Items.Add("normal");
-                cpu_priority.Items.Add("high");
-                cpu_cores.Items.Add("default");
-                break;
+                case "de-de":
+                    cpu_priority.Items.Add("Standard");
+                    cpu_priority.Items.Add("Niedrig");
+                    cpu_priority.Items.Add("Normal");
+                    cpu_priority.Items.Add("Hoch");
+                    cpu_cores.Items.Add("Standard");
+                    break;
+                default:
+                    cpu_priority.Items.Add("default");
+                    cpu_priority.Items.Add("low");
+                    cpu_priority.Items.Add("normal");
+                    cpu_priority.Items.Add("high");
+                    cpu_cores.Items.Add("default");
+                    break;
             }
             cpu_priority.SelectedIndex = 0;
 
@@ -64,7 +68,7 @@ namespace SC4_Launcher
             {
                 coreCount += int.Parse(item["NumberOfCores"].ToString());
             }
-            for(int i = 1; i < coreCount+1; i++)
+            for (int i = 1; i < coreCount + 1; i++)
             {
                 cpu_cores.Items.Add(i);
             }
@@ -72,23 +76,23 @@ namespace SC4_Launcher
             directxradio.Checked = true;
             textBox1.Text = Properties.Settings.Default.steam_path;
             textBox2.Text = Properties.Settings.Default.steam_id.ToString();
-            if(textBox1.Text == "")
+            if (textBox1.Text == "")
             {
                 button1.Enabled = false;
             }
-            if(textBox2.Text == "0")
+            if (textBox2.Text == "0")
             {
                 textBox2.Text = "24780";
             }
             loader.load();
             //Debug.WriteLine(loader.status);
-            if(loader.status == 1)
+            if (loader.status == 1)
             {
                 for (int i = 0; i < loader.lenght; i++)
                 {
                     index = loader.index[i];
                     comboBox1.Items.Add(loader.name[i]);
-                  
+
                     //Schreibe Daten in Buffer
                     buffer.index.Add(loader.index[i]);
                     buffer.name.Add(loader.name[i]);
@@ -114,7 +118,7 @@ namespace SC4_Launcher
             {
                 radioButton2.Enabled = false;
             }
-            if(comboBox1.Text == "")
+            if (comboBox1.Text == "")
             {
                 button4.Enabled = false;
             }
@@ -174,14 +178,16 @@ namespace SC4_Launcher
         {
             //Lade hier Einstellungen
             int i = loader.name.IndexOf(comboBox1.Text);
-            if (loader.custom_res[i]== true) { //Einstellung Auflösung
+            if (loader.custom_res[i] == true)
+            { //Einstellung Auflösung
                 customresbox.Checked = true;
                 height_txt.Text = Convert.ToString(loader.height[i]);
-                width_txt.Text= Convert.ToString(loader.width[i]);
+                width_txt.Text = Convert.ToString(loader.width[i]);
                 depth_txt.SelectedItem = Convert.ToString(loader.depth[i]);
             }
             else { customresbox.Checked = false; }
-            if (loader.rendering[i] == true) {  //Einstellung Rendering
+            if (loader.rendering[i] == true)
+            {  //Einstellung Rendering
                 renderingbox.Checked = true;
                 switch (loader.rendering_mode[i])
                 {
@@ -204,7 +210,8 @@ namespace SC4_Launcher
             if (loader.window_mode[i] == true) { windowmode.Checked = true; }//Fenstermodus
             else { windowmode.Checked = false; }
             if (loader.cpu_cores[i] == "default") { cpu_cores.SelectedIndex = 0; }
-            else {
+            else
+            {
                 cpu_cores.Text = loader.cpu_cores[i];
             }
             switch (loader.cpu_priority[i])
@@ -234,10 +241,10 @@ namespace SC4_Launcher
             switch (lang)
             {
                 case "de-de":
-                toolTip1.SetToolTip(customresbox, "Aktivieren um benutzerdefinierte Auflösung einzustellen");
+                    toolTip1.SetToolTip(customresbox, "Aktivieren um benutzerdefinierte Auflösung einzustellen");
                     break;
                 case "en":
-                toolTip1.SetToolTip(customresbox, "Check to define a custom resolution");
+                    toolTip1.SetToolTip(customresbox, "Check to define a custom resolution");
                     break;
             }
         }
@@ -352,7 +359,7 @@ namespace SC4_Launcher
                 if (autosave.Checked) { buffer.autosave.Add(true); }
                 else { buffer.autosave.Add(false); }
                 buffer.saveintrvl.Add(decimal.ToInt32(saveintervall.Value));
-                if(alt_keys.Checked) { buffer.alt_keys.Add(true); }
+                if (alt_keys.Checked) { buffer.alt_keys.Add(true); }
                 else { buffer.alt_keys.Add(false); }
             }
             else if (radioButton2.Checked) // Profil überschreiben
@@ -397,8 +404,8 @@ namespace SC4_Launcher
                     if (autosave.Checked) { buffer.autosave[i] = true; }
                     else { buffer.autosave[i] = false; }
                     buffer.saveintrvl[i] = Decimal.ToInt32(saveintervall.Value);
-                    if(alt_keys.Checked) { buffer.alt_keys[i]= true; }
-                    else { buffer.alt_keys[i]= false; };
+                    if (alt_keys.Checked) { buffer.alt_keys[i] = true; }
+                    else { buffer.alt_keys[i] = false; };
                 }
 
 
@@ -435,9 +442,9 @@ namespace SC4_Launcher
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (ofd.ShowDialog()== DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text= ofd.FileName;
+                textBox1.Text = ofd.FileName;
                 Properties.Settings.Default.steam_path = textBox1.Text;
 
             }
@@ -498,7 +505,7 @@ namespace SC4_Launcher
 
         private void autosave_CheckedChanged(object sender, EventArgs e)
         {
-            if(autosave.Checked == true)
+            if (autosave.Checked == true)
             {
                 saveintervall.Enabled = true;
             }
@@ -529,10 +536,10 @@ namespace SC4_Launcher
             form4.Focus();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
     }
-   
+
 }

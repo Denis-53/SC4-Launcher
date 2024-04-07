@@ -24,7 +24,6 @@ namespace SC4_Launcher
         Form3 form3 = new Form3();
         load_profile loader = new load_profile();
         System.Timers.Timer aTimer = new System.Timers.Timer();
-        Button mapper_bt = new Button();
         private IKeyboardMouseEvents m_GlobalHook;
         bool autosave_bit;
         bool debug_bit = false;
@@ -32,6 +31,7 @@ namespace SC4_Launcher
         bool alt_keys = false;
         public Form1(bool hidden, int profile, bool autores)
         {
+
             hidden_mode = hidden;
             hd_profile = profile;
             hd_auto_res = autores;
@@ -52,15 +52,9 @@ namespace SC4_Launcher
                 form3.Focus();
                 this.WindowState = FormWindowState.Minimized;
             }
-            if(Properties.Settings.Default.sc4_mapper_on == true)
-            {
-                mapper_bt.Text = "SC4 Mapper";
-                mapper_bt.Location = new Point(10, this.Height-5);
-                mapper_bt.Size = new Size(100, 23);
-                mapper_bt.Visible= false;
-                this.Controls.Add(mapper_bt);
-                mapper_bt.Click += new EventHandler(mapper_bt_cl);
-            }
+            
+              //  
+            
             pictureBox2.Image = Properties.Resources.Triangle;
             if(Properties.Settings.Default.sc4_mapper_on == false)
             {
