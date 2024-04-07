@@ -35,6 +35,12 @@ namespace SC4_Launcher
             hd_profile = profile;
             hd_auto_res = autores;
             InitializeComponent();
+            if (hidden_mode)
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+                notifyIcon1.Visible = true;
+            }
             if (Properties.Settings.Default.language != "")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
