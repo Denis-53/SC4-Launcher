@@ -20,6 +20,9 @@ namespace SC4_Launcher
 {
     public partial class Form2 : Form
     {
+        bool hidden_mode = false;
+        int hd_profile = 0;
+        bool hd_auto_res = false;
         int index = -1;
         bool init = false;
         OpenFileDialog ofd = new OpenFileDialog();
@@ -406,7 +409,7 @@ namespace SC4_Launcher
             Properties.Settings.Default.steam_path = textBox1.Text;
             Properties.Settings.Default.steam_id = Convert.ToInt32(textBox2.Text);
             Properties.Settings.Default.Save();
-            Form1 form1 = new Form1();
+            Form1 form1 = new Form1(hidden_mode, hd_profile, hd_auto_res);
             form1.close();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -478,7 +481,7 @@ namespace SC4_Launcher
                 buffer.saveintrvl.RemoveAt(i);
                 buffer.alt_keys.RemoveAt(i);
                 writer.write();
-                Form1 form1 = new Form1();
+                Form1 form1 = new Form1(hidden_mode, hd_profile, hd_auto_res);
                 form1.close();
             }
         }

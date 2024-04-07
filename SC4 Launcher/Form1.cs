@@ -34,6 +34,7 @@ namespace SC4_Launcher
             hidden_mode = hidden;
             hd_profile = profile;
             hd_auto_res = autores;
+            InitializeComponent();
             if (Properties.Settings.Default.language != "")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
@@ -53,7 +54,6 @@ namespace SC4_Launcher
                 this.Controls.Add(mapper_bt);
                 mapper_bt.Click += new EventHandler(mapper_bt_cl);
             }
-            InitializeComponent();
             pictureBox2.Image = Properties.Resources.Triangle;
             if(Properties.Settings.Default.sc4_mapper_on == false)
             {

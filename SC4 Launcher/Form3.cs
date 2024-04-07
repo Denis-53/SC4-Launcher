@@ -13,6 +13,9 @@ namespace SC4_Launcher
 {
     public partial class Form3 : Form
     {
+        bool hidden_mode = false;
+        int hd_profile = 0;
+        bool hd_auto_res = false;
         public Form3()
         {
             if (Properties.Settings.Default.language == "")
@@ -59,8 +62,9 @@ namespace SC4_Launcher
                     break;
             }
             Properties.Settings.Default.Save();
-            Form1 form = new Form1();
-            form.close();
+
+            Form1 form1 = new Form1(hidden_mode, hd_profile, hd_auto_res);
+            form1.close();
         }
     }
 }
