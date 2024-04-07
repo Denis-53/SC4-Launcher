@@ -1,3 +1,5 @@
+using System.Reflection;
+using System.Runtime.InteropServices;
 namespace SC4_Launcher
 {
     internal static class Program
@@ -5,9 +7,13 @@ namespace SC4_Launcher
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        [STAThread]
+        [STAThread]  
         static void Main(string[] args)
         {
+            Prog_data prog = new Prog_data();
+            Console.WriteLine(prog.version.ToString());
+            var buildTime = prog.GetLinkerTime(Assembly.GetEntryAssembly());
+            Console.WriteLine($"Build time at {buildTime}");
             bool hidden_mode = false;
             int profile = 0;
             bool autores = false;

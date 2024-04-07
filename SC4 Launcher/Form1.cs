@@ -16,6 +16,7 @@ namespace SC4_Launcher
 {
     public partial class Form1 : Form
     {
+
         bool hidden_mode = false;
         int hd_profile = 0;
         bool hd_auto_res = false;
