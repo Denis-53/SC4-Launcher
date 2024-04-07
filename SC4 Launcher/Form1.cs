@@ -16,6 +16,9 @@ namespace SC4_Launcher
 {
     public partial class Form1 : Form
     {
+        bool hidden_mode = false;
+        int hd_profile = 0;
+        bool hd_auto_res = false;
         Form2 form2 = new Form2();
         Form3 form3 = new Form3();
         load_profile loader = new load_profile();
@@ -26,9 +29,11 @@ namespace SC4_Launcher
         bool debug_bit = false;
         bool maximied = false;
         bool alt_keys = false;
-        public Form1()
+        public Form1(bool hidden, int profile, bool autores)
         {
-
+            hidden_mode = hidden;
+            hd_profile = profile;
+            hd_auto_res = autores;
             if (Properties.Settings.Default.language != "")
             {
                 Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.language);
