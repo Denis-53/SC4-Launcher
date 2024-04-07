@@ -109,7 +109,10 @@ namespace SC4_Launcher
                     break;
 
             }
-            
+            if (hidden_mode)
+            {
+                launch_game();
+            }
         }
         private void autosave()
         {
@@ -224,6 +227,7 @@ namespace SC4_Launcher
                 Subscribe(Hook.GlobalEvents());
             }
 
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -235,6 +239,9 @@ namespace SC4_Launcher
             {
                 Unsubscribe(Hook.GlobalEvents());
             }
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon1.Visible = false;
         }
 
         private void comboBox1_ChangeUICues(object sender, UICuesEventArgs e)
