@@ -145,6 +145,12 @@ namespace SC4_Launcher
             {
                 while (comboBox1.Text != loader.name[i]) { i++; }
             }
+            if (hd_auto_res)
+            {
+                loader.width[i] = Screen.PrimaryScreen.Bounds.Width;
+                loader.height[i] = Screen.PrimaryScreen.Bounds.Height; ;
+                loader.depth[i] = Screen.PrimaryScreen.BitsPerPixel;
+            }
             string arguments = "-applaunch " + steam_id;
             if (loader.custom_res[i] == true) { arguments += " -CustomResolution:enabled -r" + loader.width[i] + "x" + loader.height[i] + "x" + loader.depth[i]; }
             if (loader.rendering[i] == true) { arguments += " -d:" + loader.rendering_mode[i]; }
