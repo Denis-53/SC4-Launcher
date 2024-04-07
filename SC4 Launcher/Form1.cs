@@ -128,30 +128,41 @@ namespace SC4_Launcher
                 autosave_bit = false;
             }
         }
+        private void launch_game()
+        {
+            autosave();
+            string steam_path = Properties.Settings.Default.steam_path;
+            int steam_id = Properties.Settings.Default.steam_id;
+            int i = 0;
+            if (hidden_mode)
+            {
+                i = hd_profile;
+            }
+            else
+            {
+                while (comboBox1.Text != loader.name[i]) { i++; }
+            }
+            string arguments = "-applaunch " + steam_id;
+            if (loader.custom_res[i] == true) { arguments += " -CustomResolution:enabled -r" + loader.width[i] + "x" + loader.height[i] + "x" + loader.depth[i]; }
+            if (loader.rendering[i] == true) { arguments += " -d:" + loader.rendering_mode[i]; }
+            if (loader.window_mode[i] == true) { arguments += " -w"; }
+            else { arguments += " -f"; }
+            if (loader.cpu_cores[i] != "default") { arguments += " -CPUCount:" + loader.cpu_cores[i]; }
+            if (loader.cpu_priority[i] != "default") { arguments += " -CPUPriority:" + loader.cpu_priority[i]; }
+            if (loader.sound_off[i] == true) { arguments += " -audio:off"; }
+            else { arguments += " -audio:on"; }
+            if (loader.intro_off[i] == true) { arguments += " -Intro:off"; }
+            if (loader.alt_keys[i]) { alt_keys = true; } else { alt_keys = false; }
+            Debug.WriteLine(loader.alt_keys[i]);
+            string autosave_txt;
+            if (autosave_bit) { autosave_txt = "Autosave: ON"; } else { autosave_txt = "Autosave: OFF"; }
+            if (debug_bit) { MessageBox.Show(steam_path + "\n" + arguments + "\n" + autosave_txt, "debug"); }
+            Run(steam_path, arguments);
+            backgroundWorker1.RunWorkerAsync();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-                autosave();
-                string steam_path = Properties.Settings.Default.steam_path;
-                int steam_id = Properties.Settings.Default.steam_id;
-                int i = 0;
-                while (comboBox1.Text != loader.name[i]) { i++; }
-                string arguments = "-applaunch "+steam_id;
-                if (loader.custom_res[i] == true) { arguments += " -CustomResolution:enabled -r" + loader.width[i] + "x" + loader.height[i] + "x" + loader.depth[i]; }
-                if (loader.rendering[i] == true) { arguments += " -d:" + loader.rendering_mode[i]; }
-                if (loader.window_mode[i] == true) { arguments += " -w"; }
-                else { arguments += " -f"; }
-                if (loader.cpu_cores[i] != "default") { arguments += " -CPUCount:" + loader.cpu_cores[i]; }
-                if (loader.cpu_priority[i] != "default") { arguments += " -CPUPriority:" + loader.cpu_priority[i];}
-                if (loader.sound_off[i] == true) { arguments += " -audio:off"; }
-                else { arguments += " -audio:on"; }
-                if (loader.intro_off[i] == true) { arguments += " -Intro:off"; }
-                if (loader.alt_keys[i]) { alt_keys = true; } else { alt_keys = false;}
-                Debug.WriteLine(loader.alt_keys[i]);
-                string autosave_txt;
-                if (autosave_bit) { autosave_txt = "Autosave: ON"; } else { autosave_txt = "Autosave: OFF"; }
-                if (debug_bit) { MessageBox.Show(steam_path+"\n"+arguments+"\n"+autosave_txt, "debug"); }
-                Run(steam_path ,arguments);
-                backgroundWorker1.RunWorkerAsync();
+            launch_game();
 
 
         }
