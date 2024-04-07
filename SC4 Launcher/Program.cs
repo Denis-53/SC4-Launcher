@@ -14,30 +14,27 @@ namespace SC4_Launcher
             Console.WriteLine(prog.version.ToString());
             var buildTime = prog.GetLinkerTime(Assembly.GetEntryAssembly());
             Console.WriteLine($"Build time at {buildTime}");
-            bool hidden_mode = false;
-            int profile = 0;
-            bool autores = false;
 
             foreach (string arg in args)
             {
                 if(arg == "-hidden")
                 {
-                    hidden_mode = true;
+                    prog.hidden_mode = true;
                 }
                 else if (arg.Contains("-p"))
                 {
-                    Int32.TryParse(arg.Substring(arg.IndexOf("-p")+2), out profile);
+                    Int32.TryParse(arg.Substring(arg.IndexOf("-p")+2), out prog.profile);
                 }
                 else if (arg.Contains("-autores"))
                 {
-                    autores = true;
+                    prog.autores = true;
                 }
 
             }
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(hidden_mode, profile, autores));
+            Application.Run(new Form1());
         }
     }
 

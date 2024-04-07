@@ -16,27 +16,20 @@ namespace SC4_Launcher
 {
     public partial class Form1 : Form
     {
-
-        bool hidden_mode = false;
-        int hd_profile = 0;
-        bool hd_auto_res = false;
         Form2 form2 = new Form2();
         Form3 form3 = new Form3();
         load_profile loader = new load_profile();
+        Prog_data prog = new Prog_data();
         System.Timers.Timer aTimer = new System.Timers.Timer();
         private IKeyboardMouseEvents m_GlobalHook;
         bool autosave_bit;
         bool debug_bit = false;
         bool maximied = false;
         bool alt_keys = false;
-        public Form1(bool hidden, int profile, bool autores)
+        public Form1()
         {
-
-            hidden_mode = hidden;
-            hd_profile = profile;
-            hd_auto_res = autores;
             InitializeComponent();
-            if (hidden_mode)
+            if (prog.hidden_mode)
             {
                 this.WindowState = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
@@ -104,7 +97,7 @@ namespace SC4_Launcher
                     break;
 
             }
-            if (hidden_mode)
+            if (prog.hidden_mode)
             {
                 launch_game();
             }
@@ -132,15 +125,15 @@ namespace SC4_Launcher
             string steam_path = Properties.Settings.Default.steam_path;
             int steam_id = Properties.Settings.Default.steam_id;
             int i = 0;
-            if (hidden_mode)
+            if (prog.hidden_mode)
             {
-                i = hd_profile;
+                i = prog.profile;
             }
             else
             {
                 while (comboBox1.Text != loader.name[i]) { i++; }
             }
-            if (hd_auto_res)
+            if (prog.autores)
             {
                 loader.width[i] = Screen.PrimaryScreen.Bounds.Width;
                 loader.height[i] = Screen.PrimaryScreen.Bounds.Height; ;

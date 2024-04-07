@@ -63,7 +63,7 @@ namespace SC4_Launcher
             }
             Properties.Settings.Default.Save();
 
-            Form1 form1 = new Form1(hidden_mode, hd_profile, hd_auto_res);
+            Form1 form1 = new Form1();
             form1.close();
         }
     }
