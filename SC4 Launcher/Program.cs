@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 namespace SC4_Launcher
@@ -11,7 +12,7 @@ namespace SC4_Launcher
         static void Main(string[] args)
         {
             Prog_data prog = new Prog_data();
-            Console.WriteLine(prog.version.ToString());
+            Console.WriteLine(Prog_data.version.ToString());
             var buildTime = prog.GetLinkerTime(Assembly.GetEntryAssembly());
             Console.WriteLine($"Build time at {buildTime}");
 
@@ -19,15 +20,23 @@ namespace SC4_Launcher
             {
                 if(arg == "-hidden")
                 {
-                    prog.hidden_mode = true;
+                    Prog_data.hidden_mode = true;
+                    Debug.WriteLine("HIDDEN");
+                    Debug.WriteLine($"hidden_mode: {Prog_data.hidden_mode}");
                 }
                 else if (arg.Contains("-p"))
                 {
-                    Int32.TryParse(arg.Substring(arg.IndexOf("-p")+2), out prog.profile);
+                    int profile_index = 0;
+                    Int32.TryParse(arg.Substring(arg.IndexOf("-p")+2), out profile_index);
+                    Prog_data.profile = profile_index;
+                }
+                else if (arg.Contains("-autoclose"))
+                {
+                    Prog_data.autoclose = true;
                 }
                 else if (arg.Contains("-autores"))
                 {
-                    prog.autores = true;
+                    Prog_data.autores = true;
                 }
 
             }

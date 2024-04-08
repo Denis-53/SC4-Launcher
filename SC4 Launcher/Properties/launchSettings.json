@@ -1,7 +1,8 @@
 {
   "profiles": {
     "SC4 Launcher": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "-hidden -p0 -autores -autoclose"
     }
   }
 }

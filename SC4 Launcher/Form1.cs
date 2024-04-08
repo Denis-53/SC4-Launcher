@@ -1,3 +1,4 @@
+using System;
 using SimpleExec;
 using System.Diagnostics;
 using System.Globalization;
@@ -19,7 +20,6 @@ namespace SC4_Launcher
         Form2 form2 = new Form2();
         Form3 form3 = new Form3();
         load_profile loader = new load_profile();
-        Prog_data prog = new Prog_data();
         System.Timers.Timer aTimer = new System.Timers.Timer();
         private IKeyboardMouseEvents m_GlobalHook;
         bool autosave_bit;
@@ -29,7 +29,8 @@ namespace SC4_Launcher
         public Form1()
         {
             InitializeComponent();
-            if (prog.hidden_mode)
+
+            if (Prog_data.hidden_mode == true)
             {
                 this.WindowState = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
@@ -45,9 +46,9 @@ namespace SC4_Launcher
                 form3.Focus();
                 this.WindowState = FormWindowState.Minimized;
             }
-            
-              //  
-            
+
+            //  
+            Debug.WriteLine(Prog_data.hidden_mode);
             pictureBox2.Image = Properties.Resources.Triangle;
             if(Properties.Settings.Default.sc4_mapper_on == false)
             {
@@ -97,7 +98,7 @@ namespace SC4_Launcher
                     break;
 
             }
-            if (prog.hidden_mode)
+            if (Prog_data.hidden_mode)
             {
                 launch_game();
             }
@@ -125,15 +126,15 @@ namespace SC4_Launcher
             string steam_path = Properties.Settings.Default.steam_path;
             int steam_id = Properties.Settings.Default.steam_id;
             int i = 0;
-            if (prog.hidden_mode)
+            if (Prog_data.hidden_mode)
             {
-                i = prog.profile;
+                i =   Prog_data.profile;
             }
             else
             {
                 while (comboBox1.Text != loader.name[i]) { i++; }
             }
-            if (prog.autores)
+            if (Prog_data.autores)
             {
                 loader.width[i] = Screen.PrimaryScreen.Bounds.Width;
                 loader.height[i] = Screen.PrimaryScreen.Bounds.Height; ;
@@ -233,9 +234,16 @@ namespace SC4_Launcher
             {
                 Unsubscribe(Hook.GlobalEvents());
             }
-            this.WindowState = FormWindowState.Normal;
-            this.ShowInTaskbar = true;
-            notifyIcon1.Visible = false;
+            if (Prog_data.autoclose)
+            {
+                this.close();
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.ShowInTaskbar = true;
+                notifyIcon1.Visible = false;
+            }
         }
 
         private void comboBox1_ChangeUICues(object sender, UICuesEventArgs e)

@@ -40,7 +40,7 @@ namespace SC4_Launcher
             depth_txt.Items.Add("16");
             depth_txt.Items.Add("32");
             var buildTime = prog.GetLinkerTime(Assembly.GetEntryAssembly());
-            label11.Text = "Version " + prog.version;
+            label11.Text = "Version " + Prog_data.version;
             label12.Text = $"Build time at {buildTime}";
             switch (lang)
             {

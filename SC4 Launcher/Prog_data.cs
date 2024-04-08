@@ -11,10 +11,11 @@ namespace SC4_Launcher
 {
     public class Prog_data
     {
-        public Version version = new Version("1.2.0");
-        public bool hidden_mode = false;
-        public int profile = 0;
-        public bool autores = false;
+        public static Version version = new Version("1.2.0");
+        public static bool hidden_mode { get; set; }
+        public static bool autoclose {  get; set; }
+        public static int profile {  get; set; }
+        public static bool autores {  get; set; }
         const string BuildVersionMetadataPrefix = "+build";
         const string dateFormat = "yyyy-MM-ddTHH:mm:ss:fffZ";
 
