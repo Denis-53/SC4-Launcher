@@ -63,6 +63,46 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _a3ec2e97_51c3_40f1_b19d_ff881ece30c0 {
+            get {
+                object obj = ResourceManager.GetObject("_a3ec2e97-51c3-40f1-b19d-ff881ece30c0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _c23e9618_6939_4297_b1f9_149cd8175dd8 {
+            get {
+                object obj = ResourceManager.GetObject("_c23e9618-6939-4297-b1f9-149cd8175dd8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _c2d1d78c_7476_4b6f_9a8e_ee55498be71a {
+            get {
+                object obj = ResourceManager.GetObject("_c2d1d78c-7476-4b6f-9a8e-ee55498be71a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _fba60182_e915_46e3_917c_e549687c6ffb {
+            get {
+                object obj = ResourceManager.GetObject("_fba60182-e915-46e3-917c-e549687c6ffb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Remove {
             get {
                 object obj = ResourceManager.GetObject("Remove", resourceCulture);
