@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SC4_Launcher
 {
     public partial class Form4 : Form
     {
-        Form5 form5 = new Form5();
-        OpenFileDialog ofd = new OpenFileDialog();
+        OpenFileDialog opnfd = new OpenFileDialog();
         Toolbar toolbar = new Toolbar();
         bool btn_3cl = false;
         bool btn_4cl = false;
@@ -24,7 +25,6 @@ namespace SC4_Launcher
         public Form4()
         {
             InitializeComponent();
-            form5.FormClosing += Form5_Closing;
             dataGridView1.DataSource = null;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AllowUserToAddRows = false;
@@ -34,6 +34,11 @@ namespace SC4_Launcher
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dataGridView1.RowTemplate.Height = 23; // Setzt die Höhe aller Zeilen auf 50 Pixel
             dataGridView1.Columns["visible"].ReadOnly = false;
+            dataGridView1.Columns["name"].ReadOnly = false;
+            opnfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            opnfd.Filter = "EXE |*.exe";
+            opnfd.Title = "Anwendungspfad";
+
 
             if (Properties.Settings.Default.language == "en")
             {
@@ -41,6 +46,7 @@ namespace SC4_Launcher
                 dataGridView1.Columns[1].HeaderText = " ";
                 dataGridView1.Columns[2].HeaderText = "name";
                 dataGridView1.Columns[3].HeaderText = "path";
+                opnfd.Title = "Program path";
             }
             if (Properties.Settings.Default.alt_key_end != default) { button3.Text = Properties.Settings.Default.alt_key_end.ToString(); }
             if (Properties.Settings.Default.alt_key_pos1 != default) { button4.Text = Properties.Settings.Default.alt_key_pos1.ToString(); }
@@ -113,19 +119,6 @@ namespace SC4_Launcher
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            form5.Show();
-        }
-        private void Form5_Closing(object sender, FormClosingEventArgs e)
-        {
-            if (Toolbar.bar_elements.Count > 0) // Nur aktualisieren, wenn Daten vorhanden sind
-            {
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = Toolbar.bar_elements;
-                dataGridView1.ClearSelection();
-            }
-        }
 
         private void Form4_Load(object sender, EventArgs e)
         {
@@ -137,6 +130,58 @@ namespace SC4_Launcher
             }
         }
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (opnfd.ShowDialog() == DialogResult.OK)
+            {
+                Toolbar.bar_elements.Add(new Toolbar_struct { visible = true, icon = toolbar.geticon(opnfd.FileName), name = opnfd.SafeFileName, path = opnfd.FileName });
+                refresh_data();
+            }
+        }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = dataGridView1.CurrentCell.RowIndex;
+
+            if (selectedIndex >= 0) // Prüfen, ob eine Auswahl existiert
+            {
+                Toolbar.bar_elements.RemoveAt(selectedIndex); // Entferne Element aus der Liste
+                refresh_data();
+
+            }
+            else
+            {
+                if (Properties.Settings.Default.language == "en")
+                {
+                    MessageBox.Show("Please select a entry!");
+                }
+                else
+                {
+                    MessageBox.Show("Bitte einen Eintrag auswählen!");
+                }
+            }
+        }
+        private void refresh_data()
+        {
+            if (Toolbar.bar_elements.Count > 0) // Nur aktualisieren, wenn Daten vorhanden sind
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = Toolbar.bar_elements;
+                dataGridView1.ClearSelection();
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = dataGridView1.CurrentCell.RowIndex;
+
+            if (selectedIndex >= 0) // Prüfen, ob eine Auswahl existiert
+            {
+                string folder = Path.GetDirectoryName(dataGridView1.Rows[selectedIndex].Cells["path"].Value.ToString());
+                Process.Start("explorer.exe", folder);
+
+            }
+            
+        }
     }
 }

@@ -111,6 +111,7 @@
             // 
             resources.ApplyResources(pictureBox2, "pictureBox2");
             pictureBox2.Cursor = Cursors.Hand;
+            pictureBox2.InitialImage = Properties.Resources.fold16;
             pictureBox2.Name = "pictureBox2";
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;

@@ -304,6 +304,39 @@
   <data name="tabPage5.ToolTip" xml:space="preserve">
     <value />
   </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>These icons may be freely used, modified, and redistributed under the terms of the Creative Commons Attribution 4.0 International (CC BY 4.0) license, as long as Microsoft is credited as the original author.
+</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="linkLabel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 176</value>
+  </data>
+  <data name="linkLabel3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 15</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>© Microsoft Corporation – License:
+</value>
+  </data>
+  <data name="label14.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="linkLabel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>This program uses icons from the
+</value>
+  </data>
+  <data name="label13.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="label12.ToolTip" xml:space="preserve">
     <value />
   </data>

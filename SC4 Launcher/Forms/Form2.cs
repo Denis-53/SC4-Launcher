@@ -403,7 +403,8 @@ namespace SC4_Launcher
                     else { buffer.autosave[i] = false; }
                     buffer.saveintrvl[i] = Decimal.ToInt32(saveintervall.Value);
                     if (alt_keys.Checked) { buffer.alt_keys[i] = true; }
-                    else { buffer.alt_keys[i] = false; };
+                    else { buffer.alt_keys[i] = false; }
+                    ;
                 }
 
 
@@ -537,6 +538,22 @@ namespace SC4_Launcher
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://github.com/microsoft/vscode-icons")
+            {
+                UseShellExecute = true
+            });
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://creativecommons.org/licenses/by/4.0/")
+            {
+                UseShellExecute = true
+            });
         }
     }
 

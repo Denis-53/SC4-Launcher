@@ -37,25 +37,29 @@
             button3 = new Button();
             button2 = new Button();
             groupBox2 = new GroupBox();
+            toolStrip1 = new ToolStrip();
+            toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
             dataGridView1 = new DataGridView();
             visible = new DataGridViewCheckBoxColumn();
             icon = new DataGridViewImageColumn();
             name = new DataGridViewTextBoxColumn();
             path = new DataGridViewTextBoxColumn();
-            button6 = new Button();
+            toolStripButton3 = new ToolStripButton();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(button3);
-            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             // 
@@ -99,23 +103,45 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(toolStrip1);
             groupBox2.Controls.Add(dataGridView1);
-            groupBox2.Controls.Add(button6);
             resources.ApplyResources(groupBox2, "groupBox2");
             groupBox2.Name = "groupBox2";
             groupBox2.TabStop = false;
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
+            resources.ApplyResources(toolStrip1, "toolStrip1");
+            toolStrip1.Name = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = Properties.Resources.add15;
+            resources.ApplyResources(toolStripButton1, "toolStripButton1");
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Click += toolStripButton1_Click;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = Properties.Resources.remove15;
+            resources.ApplyResources(toolStripButton2, "toolStripButton2");
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { visible, icon, name, path });
-            resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -158,16 +184,16 @@
             path.Name = "path";
             path.ReadOnly = true;
             // 
-            // button6
+            // toolStripButton3
             // 
-            resources.ApplyResources(button6, "button6");
-            button6.Name = "button6";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = Properties.Resources.folder16;
+            resources.ApplyResources(toolStripButton3, "toolStripButton3");
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Click += toolStripButton3_Click;
             // 
             // Form4
             // 
-            AcceptButton = button6;
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groupBox2);
@@ -175,11 +201,13 @@
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form4";
-            FormClosing += Form4_FormClosing;
             Load += Form4_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -193,11 +221,14 @@
         private Button button4;
         private Button button5;
         private GroupBox groupBox2;
-        private Button button6;
         private DataGridView dataGridView1;
         private DataGridViewCheckBoxColumn visible;
         private DataGridViewImageColumn icon;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn path;
+        private ToolStrip toolStrip1;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
     }
 }

@@ -73,9 +73,9 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _c23e9618_6939_4297_b1f9_149cd8175dd8 {
+        internal static System.Drawing.Bitmap add15 {
             get {
-                object obj = ResourceManager.GetObject("_c23e9618-6939-4297-b1f9-149cd8175dd8", resourceCulture);
+                object obj = ResourceManager.GetObject("add15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _c2d1d78c_7476_4b6f_9a8e_ee55498be71a {
+        internal static System.Drawing.Bitmap fold16 {
             get {
-                object obj = ResourceManager.GetObject("_c2d1d78c-7476-4b6f-9a8e-ee55498be71a", resourceCulture);
+                object obj = ResourceManager.GetObject("fold16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _fba60182_e915_46e3_917c_e549687c6ffb {
+        internal static System.Drawing.Bitmap folder16 {
             get {
-                object obj = ResourceManager.GetObject("_fba60182-e915-46e3-917c-e549687c6ffb", resourceCulture);
+                object obj = ResourceManager.GetObject("folder16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,19 @@ namespace SC4_Launcher.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Remove {
+        internal static System.Drawing.Bitmap globe15 {
             get {
-                object obj = ResourceManager.GetObject("Remove", resourceCulture);
+                object obj = ResourceManager.GetObject("globe15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove15 {
+            get {
+                object obj = ResourceManager.GetObject("remove15", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,36 +126,6 @@ namespace SC4_Launcher.Properties {
         internal static System.Drawing.Bitmap SC4 {
             get {
                 object obj = ResourceManager.GetObject("SC4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Triangle {
-            get {
-                object obj = ResourceManager.GetObject("Triangle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Triangle1 {
-            get {
-                object obj = ResourceManager.GetObject("Triangle1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Web {
-            get {
-                object obj = ResourceManager.GetObject("Web", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

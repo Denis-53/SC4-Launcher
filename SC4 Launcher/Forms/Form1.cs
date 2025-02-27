@@ -13,6 +13,7 @@ using Microsoft.VisualBasic;
 using System.Drawing;
 using Gma.System.MouseKeyHook;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing.Drawing2D;
 
 namespace SC4_Launcher
 {
@@ -28,7 +29,7 @@ namespace SC4_Launcher
         bool debug_bit = false;
         bool maximied = false;
         bool alt_keys = false;
-        Color panelColor = Color.FromArgb(0, 212, 191);
+        Color panelColor = Color.FromArgb(29, 133, 115);
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace SC4_Launcher
 
             //  
             Debug.WriteLine(Prog_data.hidden_mode);
-            pictureBox2.Image = Properties.Resources.Triangle;
+            pictureBox2.Image = Properties.Resources.fold16;
             if((Toolbar.bar_elements.Count > 0) && toolbar.check_buttons_enabled())
             {
                 pictureBox2.Visible = true;
@@ -71,7 +72,6 @@ namespace SC4_Launcher
             {
                 pictureBox2.Visible = false;
             }
-            SetPictureBoxAngle(pictureBox2, 180);
             
             if (Properties.Settings.Default.steam_path == "")
             {
@@ -303,14 +303,14 @@ namespace SC4_Launcher
             if (maximied == false)
             {
                 this.Size = new Size(this.Width, this.Height + 25);
-                pictureBox2.Image = Properties.Resources.Triangle;
-                maximied= true;
+                SetPictureBoxAngle(pictureBox2, 180);
+                maximied = true;
             }
             else
             {
                 this.Size = new Size(this.Width, this.Height - 25);
-                SetPictureBoxAngle(pictureBox2, 180);
-                maximied= false;
+                pictureBox2.Image = Properties.Resources.fold16;
+                maximied = false;
             }
         }
 
@@ -321,24 +321,38 @@ namespace SC4_Launcher
 
         private void SetPictureBoxAngle(PictureBox pictureBox, float angle)
         {
-            Bitmap originalImage = (Bitmap)pictureBox.Image;
-            Bitmap rotatedImage = new Bitmap(originalImage.Width, originalImage.Height);
+            if (pictureBox.Image == null)
+                return;
 
-            using (Graphics graphics = Graphics.FromImage(rotatedImage))
+            Bitmap originalImage = new Bitmap(pictureBox.Image);
+
+            // Berechnung des neuen Bildbereichs nach der Rotation
+            using (GraphicsPath path = new GraphicsPath())
             {
-                graphics.Clear(Color.Transparent);
-                graphics.TranslateTransform((float)originalImage.Width / 2, (float)originalImage.Height / 2);
-                graphics.RotateTransform(angle);
-                graphics.TranslateTransform(-(float)originalImage.Width / 2, -(float)originalImage.Height / 2);
-                graphics.DrawImage(originalImage, new Point(0, 0));
-            }
+                path.AddRectangle(new RectangleF(0f, 0f, originalImage.Width, originalImage.Height));
+                Matrix matrix = new Matrix();
+                matrix.Rotate(angle);
+                path.Transform(matrix);
+                RectangleF bounds = path.GetBounds();
 
-            pictureBox.Image = rotatedImage;
+                Bitmap rotatedImage = new Bitmap((int)bounds.Width, (int)bounds.Height);
+                using (Graphics graphics = Graphics.FromImage(rotatedImage))
+                {
+                    graphics.Clear(Color.Transparent);
+                    graphics.TranslateTransform(bounds.Width / 2f, bounds.Height / 2f);
+                    graphics.RotateTransform(angle);
+                    graphics.TranslateTransform(-originalImage.Width / 2f, -originalImage.Height / 2f);
+                    graphics.DrawImage(originalImage, new Point(0, 0));
+                }
+
+                pictureBox.Image = rotatedImage;
+            }
         }
-       /* private void mapper_bt_cl(object sender, EventArgs e)
-        {
-            Run(Properties.Settings.Default.sc4_mapper_path);
-        }*/
+
+        /* private void mapper_bt_cl(object sender, EventArgs e)
+         {
+             Run(Properties.Settings.Default.sc4_mapper_path);
+         }*/
         //Hook Keypress
         public void Subscribe(IKeyboardMouseEvents events)
         {

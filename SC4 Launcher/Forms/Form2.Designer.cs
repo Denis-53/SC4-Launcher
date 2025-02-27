@@ -66,6 +66,11 @@
             saveintervall = new NumericUpDown();
             autosave = new CheckBox();
             tabPage6 = new TabPage();
+            label15 = new Label();
+            linkLabel3 = new LinkLabel();
+            label14 = new Label();
+            linkLabel2 = new LinkLabel();
+            label13 = new Label();
             label12 = new Label();
             label11 = new Label();
             label10 = new Label();
@@ -368,6 +373,11 @@
             // tabPage6
             // 
             resources.ApplyResources(tabPage6, "tabPage6");
+            tabPage6.Controls.Add(label15);
+            tabPage6.Controls.Add(linkLabel3);
+            tabPage6.Controls.Add(label14);
+            tabPage6.Controls.Add(linkLabel2);
+            tabPage6.Controls.Add(label13);
             tabPage6.Controls.Add(label12);
             tabPage6.Controls.Add(label11);
             tabPage6.Controls.Add(label10);
@@ -376,6 +386,40 @@
             tabPage6.Name = "tabPage6";
             toolTip1.SetToolTip(tabPage6, resources.GetString("tabPage6.ToolTip"));
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            resources.ApplyResources(label15, "label15");
+            label15.Name = "label15";
+            toolTip1.SetToolTip(label15, resources.GetString("label15.ToolTip"));
+            // 
+            // linkLabel3
+            // 
+            resources.ApplyResources(linkLabel3, "linkLabel3");
+            linkLabel3.Name = "linkLabel3";
+            linkLabel3.TabStop = true;
+            toolTip1.SetToolTip(linkLabel3, resources.GetString("linkLabel3.ToolTip"));
+            linkLabel3.LinkClicked += linkLabel3_LinkClicked;
+            // 
+            // label14
+            // 
+            resources.ApplyResources(label14, "label14");
+            label14.Name = "label14";
+            toolTip1.SetToolTip(label14, resources.GetString("label14.ToolTip"));
+            // 
+            // linkLabel2
+            // 
+            resources.ApplyResources(linkLabel2, "linkLabel2");
+            linkLabel2.Name = "linkLabel2";
+            linkLabel2.TabStop = true;
+            toolTip1.SetToolTip(linkLabel2, resources.GetString("linkLabel2.ToolTip"));
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            // 
+            // label13
+            // 
+            resources.ApplyResources(label13, "label13");
+            label13.Name = "label13";
+            toolTip1.SetToolTip(label13, resources.GetString("label13.ToolTip"));
             // 
             // label12
             // 
@@ -447,7 +491,7 @@
             // button4
             // 
             resources.ApplyResources(button4, "button4");
-            button4.Image = Properties.Resources.Remove;
+            button4.Image = Properties.Resources.remove15;
             button4.Name = "button4";
             toolTip1.SetToolTip(button4, resources.GetString("button4.ToolTip"));
             button4.UseVisualStyleBackColor = true;
@@ -457,7 +501,7 @@
             // button5
             // 
             resources.ApplyResources(button5, "button5");
-            button5.Image = Properties.Resources.Web;
+            button5.Image = Properties.Resources.globe15;
             button5.Name = "button5";
             toolTip1.SetToolTip(button5, resources.GetString("button5.ToolTip"));
             button5.UseVisualStyleBackColor = true;
@@ -567,5 +611,10 @@
         private Label label11;
         private Label label10;
         private Label label12;
+        private LinkLabel linkLabel2;
+        private Label label13;
+        private LinkLabel linkLabel3;
+        private Label label14;
+        private Label label15;
     }
 }
