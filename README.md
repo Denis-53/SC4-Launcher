@@ -2,7 +2,7 @@
 SC4 Launcher is a Launcher for Sim City 4 (Steam version). It has some usefull features like profile management where, you can store individual settings and Autosave to save your city automaticly 
 
 
-![image](https://github.com/user-attachments/assets/eb1cd28a-4dda-43db-a368-6bfd35e95c62)
+![image](https://github.com/user-attachments/assets/697f30e0-6dd8-4d84-861b-7c1e292a537d)
 
-![image](https://github.com/user-attachments/assets/1289254c-cac5-48a8-a9ea-0c0d0c08840c)
+![image](https://github.com/user-attachments/assets/53c72171-0e27-46ec-ac15-3ccef6655105)
 
